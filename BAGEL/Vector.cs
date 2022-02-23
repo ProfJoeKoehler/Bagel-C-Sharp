@@ -19,8 +19,7 @@
         /// <param name="vectorY">the y coordinate</param>
         public Vector(float vectorX = 0, float vectorY = 0)
         {
-            this.x = vectorX;
-            this.y = vectorY;
+            this.SetValues(vectorX, vectorY);
         }
 
         /// <summary>
@@ -28,7 +27,7 @@
         /// </summary>
         /// <param name="vectorX">new x coordinate</param>
         /// <param name="vectorY">new y coordinate</param>
-        public void setValues(float vectorX, float vectorY)
+        public void SetValues(float vectorX, float vectorY)
         {
             this.x = vectorX;
             this.y = vectorY;
@@ -39,7 +38,7 @@
         /// </summary>
         /// <param name="vectorDX">value to add to the x coordinate</param>
         /// <param name="vectorDY">value to add to the y coordinate</param>
-        public void addValues(float vectorDX, float vectorDY)
+        public void AddValues(float vectorDX, float vectorDY)
         {
             this.x += vectorDX;
             this.y += vectorDY;
@@ -49,7 +48,7 @@
         /// Add x and y components of another vector to this vector.
         /// </summary>
         /// <param name="other">vector to be added to this vector</param>
-        public void combineVector(Vector other)
+        public void CombineVector(Vector other)
         {
             this.x += other.x;
             this.y += other.y;
@@ -59,7 +58,7 @@
         /// Scale x and y components of this vector by a constant.
         /// </summary>
         /// <param name="scaleValue">value to scale by</param>
-        public void scaleVector(float scaleValue)
+        public void ScaleVector(float scaleValue)
         {
             this.x *= scaleValue;
             this.y += scaleValue;
@@ -69,7 +68,7 @@
         /// Get the length of this vector.
         /// </summary>
         /// <returns>the length of this vector</returns>
-        public float getLength()
+        public float GetLength()
         {
             return (float)(Math.Sqrt(Math.Pow(this.x, 2) + Math.Pow(this.y, 2)));
         }
@@ -80,21 +79,39 @@
         /// Angle returns 0 in length range -180 to 180
         /// </summary>
         /// <returns>angle between this vector and positive x-axis</returns>
-        public float getAngle()
+        public float GetAngle()
         {
-            if (this.getLength() == 0)
+            if (this.GetLength() == 0)
                 return 0;
             else
                 return (float)(Math.Atan2(this.y, this.x) * (180 / Math.PI));
         }
 
         /// <summary>
+        /// Gets the x coordinate of this vector
+        /// </summary>
+        /// <returns>x coordinate of this vector</returns>
+        public float GetXCoord()
+        {
+            return this.x;
+        }
+
+        /// <summary>
+        /// Gets the y coordinate of this vector
+        /// </summary>
+        /// <returns>y coordinate of this vector</returns>
+        public float GetYCoord()
+        {
+            return this.y;
+        }
+
+        /// <summary>
         /// Set the length of this vector (without changing the current direction).
         /// </summary>
         /// <param name="length">new length of this vector</param>
-        public void setLength(float length)
+        public void SetLength(float length)
         {
-            float angleDegrees = this.getAngle();
+            float angleDegrees = this.GetAngle();
             this.x = (float)(length * Math.Cos(angleDegrees * (Math.PI / 180)));
             this.y = (float)(length * Math.Sin(angleDegrees * (Math.PI / 180)));
         }
@@ -104,9 +121,9 @@
         /// (Angles increase in clockwise direction, since positive y-axis is down.)
         /// </summary>
         /// <param name="angleDegrees">the new direction angle of this vector</param>
-        public void setAngle(float angleDegrees)
+        public void SetAngle(float angleDegrees)
         {
-            float length = this.getLength();
+            float length = this.GetLength();
             this.x = (float)(length * Math.Cos(angleDegrees * (Math.PI / 180)));
             this.y = (float)(length * Math.Sin(angleDegrees * (Math.PI / 180)));
         }
