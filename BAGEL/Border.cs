@@ -5,11 +5,8 @@
     /// The position is stored as a Vector so it can be easily synchronized
     /// with the position of a Sprite
     /// </summary>
-    class Rectangle
+    class Border
     {
-        // Note: position must be non-null in order to utilize SetValues
-        // in the Constructor to avoid repitive code; might be overcomplicating
-        // Rectangle, but it's worth experimenting
         private Vector position = null!;
         private float width;
         private float height;
@@ -21,7 +18,7 @@
         /// <param name="ry">y coordinate of the top-left corner</param>
         /// <param name="r_width">the length in the x-direction</param>
         /// <param name="r_height">the length in the y-direction</param>
-        public Rectangle(float rx = 0, float ry = 0, float r_width = 0, float r_height = 0)
+        public Border(float rx = 0, float ry = 0, float r_width = 0, float r_height = 0)
         {
             this.SetValues(rx, ry, r_width, r_height);
         }
@@ -62,11 +59,29 @@
         }
 
         /// <summary>
+        /// Sets a new width
+        /// </summary>
+        /// <param name="r_width">horizontal length of the rectangle</param>
+        public void SetWidth(float r_width)
+        {
+            this.width = r_width;
+        }
+
+        /// <summary>
+        /// Sets a new height
+        /// </summary>
+        /// <param name="r_height">veritcal length of the rectangle</param>
+        public void SetHeight(float r_height)
+        {
+            this.height = r_height;
+        }
+
+        /// <summary>
         /// Determine if this rectangle overlaps another rectangle (includes overlapping edges).
         /// </summary>
         /// <param name="other">rectangle to check for overlap with</param>
         /// <returns>true if this rectangle overlaps other rectangle, false otherwise</returns>
-        public Boolean Overlaps(Rectangle other)
+        public Boolean Overlaps(Border other)
         {
             if ((other.position.GetXCoord() + other.width/2 <= this.position.GetXCoord() - this.width / 2) || (this.position.GetXCoord() + this.width/2 <= other.position.GetXCoord() - other.width/2)|| (other.position.GetYCoord() + other.height/2 <= this.position.GetYCoord() - this.height/2)|| (this.position.GetYCoord() + this.height/2 <= other.position.GetYCoord() - other.height/2))
                 { return true; }
