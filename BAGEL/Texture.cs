@@ -6,7 +6,7 @@ namespace BAGEL
     /// A Texture stores an Image and a Border
     /// that indicates which region of the Image will be drawn.
     /// </summary>
-    class Texture
+    public class Texture
     {
         private Border brdr = null!;
         private Image img = null!;
@@ -29,6 +29,11 @@ namespace BAGEL
         public float GetHeight()
         {
             return img.Width;
+        }
+
+        public Image GetImg()
+        {
+            return this.img;
         }
     }
 }

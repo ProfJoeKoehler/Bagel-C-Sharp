@@ -5,7 +5,7 @@
     /// The position is stored as a Vector so it can be easily synchronized
     /// with the position of a Sprite
     /// </summary>
-    class Border
+    public class Border
     {
         private Vector position = null!;
         private float width;
@@ -59,12 +59,30 @@
         }
 
         /// <summary>
+        /// Returns the width of the Border
+        /// </summary>
+        /// <returns>Width of the Border</returns>
+        public float GetWidth()
+        {
+            return this.width;
+        }
+
+        /// <summary>
         /// Sets a new width
         /// </summary>
         /// <param name="r_width">horizontal length of the rectangle</param>
         public void SetWidth(float r_width)
         {
             this.width = r_width;
+        }
+
+        /// <summary>
+        /// Returns the height of the Border
+        /// </summary>
+        /// <returns>Height of the Border</returns>
+        public float GetHeight()
+        {
+            return this.height;
         }
 
         /// <summary>

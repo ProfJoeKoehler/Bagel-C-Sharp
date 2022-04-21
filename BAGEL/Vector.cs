@@ -97,12 +97,30 @@
         }
 
         /// <summary>
+        /// Sets the x coordinate of this vector
+        /// </summary>
+        /// <param name="newX">new x coordinate of the vector</param>
+        public void SetXCoord(float newX)
+        {
+            this.x = newX;
+        }
+
+        /// <summary>
         /// Gets the y coordinate of this vector
         /// </summary>
         /// <returns>y coordinate of this vector</returns>
         public float GetYCoord()
         {
             return this.y;
+        }
+
+        /// <summary>
+        /// Sets the new y coordinate of this vector
+        /// </summary>
+        /// <param name="newY">the new y coordinate of the vector</param>
+        public void SetYCoord(float newY)
+        {
+            this.y = newY;
         }
 
         /// <summary>

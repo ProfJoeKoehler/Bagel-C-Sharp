@@ -89,6 +89,28 @@
         }
 
         /// <summary>
+        /// Overrides the position vector with a new one
+        /// </summary>
+        /// <param name="other">the vector to replace the position vector</param>
+        public void SetPositionVector(Vector other)
+        {
+            this.positionVector = other;
+        }
+
+        /// <summary>
+        /// Sets new values for the Physics Object
+        /// </summary>
+        /// <param name="accValue">New acceleration value</param>
+        /// <param name="maxSpeed">New maximum speed value</param>
+        /// <param name="decValue">New deceleration value</param>
+        public void SetValues(float accValue, float maxSpeed, float decValue)
+        {
+            this.accelerationValue = accValue;
+            this.maximumSpeed = maxSpeed;
+            this.decelerationValue = decValue;
+        }
+
+        /// <summary>
         /// Update the values for position, velocity, and acceleration vectors.
         /// This method should be called once per frame (automatically handled for (Sprite) objects). 
         /// </summary>
